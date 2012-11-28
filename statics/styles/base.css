@@ -1,0 +1,87 @@
+
+body
+{
+
+	margin: 0px;
+	background: #000000;
+	color: #ffffff;
+	font-size:   8px;
+	/*line-height: 20px;*/
+	overflow: hidden;
+	
+}
+
+h6{
+
+	top: 0px; 
+	width: 100%;
+	color: #ffffff;
+	margin: 8px;
+	padding: -10px;				
+	text-align:left;
+
+	font-family: "Mrs Eaves OT", Georgia, Times, serif;
+	/*font-family: "Courier", serif;*/
+	font-size:   14px;
+	/*font-style: italic;*/
+	font-weight: bold;
+	color: #ffffff;
+}
+
+footer{	
+
+	position: absolute;
+	font-family: "Mrs Eaves OT", Georgia, Times, serif;
+	/*font-family: "Courier", serif;*/
+	font-size:   19px;
+	line-height: 15px;
+	/*font-style: italic;*/
+	font-weight: bold;
+	
+	/*top: 643px; */
+	top: 550px;
+	/*top: height / 2;*/
+	width: 100%;
+	color: #ffffff;
+	padding: 38px;
+				
+	text-align:left;
+	z-index:1000;
+
+}
+
+#instruction
+{	
+	font-family: "Avenir Lt std", Futura, sans-serif;
+	font-size: 18px ;
+	line-height: 16px;
+	color: #9ae7c7;	
+}
+
+
+
+a: link{	
+	font-size:   28px;
+	color: #9ae7c7;
+	text-decoration: none;
+}
+
+a: hover{
+	font-size:   28px;
+	color: #9ae7c7;	
+	text-decoration: underline;
+
+}
+
+a: visited{	font-size:   28px;
+	color: #9ae7c7;
+	text-decoration: none;
+}
+
+
+#three
+{	
+	width: 1024px;
+	height: 768px;
+}
+
