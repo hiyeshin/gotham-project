@@ -6,9 +6,8 @@ import requests
 #from google.appengine.ext.webapp import template
 #from samplelib import samplemodule
 
-from flask import Flask, request, render_tempolate, redirect, abort, jsonify
+from flask import Flask, request, render_template, redirect, abort, jsonify
 
-import models
 
 app = Flask(__name__) 
 app.config['CSRF_ENABLED'] = False
@@ -18,7 +17,7 @@ app.logger.debug("Begins!")
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    return render_template('main.html')
 
 
 @app.errorhandler(404)
