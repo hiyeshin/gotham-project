@@ -45,10 +45,8 @@ var params, title, info, prompt;
 var clock = new THREE.Clock();
 
 
-
 init();
 animate();
-//addControls();
 
 
 function init(){
@@ -125,43 +123,46 @@ function init(){
 	scene.add( cubeGroup );
 
 
-	//1. add middle wall
-	middlePlane = new THREE.PlaneGeometry( 640, 640, canvasWidth, canvasHeight);
-	middlePlane.dynamic = true;
+	// video texture
 	meshMaterial = new THREE.MeshBasicMaterial({
 		opacity: 1,
-		map: videoTexture
+		map: videoTexture,
+		side: THREE.DoubleSide
 	});
 
+
+	//1. add middle wall
+	middlePlane = new THREE.PlaneGeometry( 640, 640, vidWidth, vidHeight);
+	middlePlane.dynamic = true;
+	
 	var middleWall = new THREE.Mesh( middlePlane, meshMaterial );
-	middleWall.position.z = 5;
+	middleWall.position.z = -200;
 
 	cubeGroup.add( middleWall );
 
 
 	// 2. add left wall
-	leftPlane = new THREE.PlaneGeometry( 640, 640, canvasWidth, canvasHeight);
+	leftPlane = new THREE.PlaneGeometry( 640, 640, vidWidth, vidHeight);
 	leftPlane.dynamic = true;
 
 	var leftWall = new THREE.Mesh( leftPlane, meshMaterial );
 
-	//leftWall.rotation.y = Math.PI / 2;
-	leftWall.rotation.y = 1.2;
-	leftWall.position.x = -320;
+	leftWall.rotation.y = 1.25;
+	leftWall.position.x = -360;
 	leftWall.position.z = 5;
 
 	cubeGroup.add( leftWall );	
 	
 
 	// 3. add left wall
-	rightPlane = new THREE.PlaneGeometry( 640, 640, canvasWidth, canvasHeight);
+	rightPlane = new THREE.PlaneGeometry( 640, 640, vidWidth, vidHeight);
 	rightPlane.dynamic = true;
 
 	var rightWall = new THREE.Mesh( rightPlane, meshMaterial );
 
 	//leftWall.rotation.y = Math.PI / 2;
-	rightWall.rotation.y = -1.2;
-	rightWall.position.x = 320;
+	rightWall.rotation.y = -1.25;
+	rightWall.position.x = 360;
 	rightWall.position.z = 5;
 
 	cubeGroup.add( rightWall );	
@@ -196,8 +197,6 @@ function init(){
 
 	//onResize();
 
-	//animate();
-
 }
 
 
@@ -229,28 +228,6 @@ function onResize(){
 	windowHalfX = window.innerWidth / 2;
 	windowHalfY = window.innerHeight / 2;
 }
-
-
-// function addControls(){
-
-// 	controls = new THREE.TrackballControls( camera )
-
-// 	controls.rotateSpeed = 1.0
-// 	controls.zoomSpeed   = 1.2
-// 	controls.panSpeed    = 0.8
-
-// 	controls.noZoom = false
-// 	controls.noPan  = false
-// 	controls.staticMoving = true
-// 	controls.dynamicDampingFactor = 0.3
-// 	controls.keys = [ 65, 83, 68 ]//  ASCII values for A, S, and D
-
-// 	controls.addEventListener( 'change', render );
-// 	console.log("controls controls");
-
-// }
-
-
 
 
 function detectSpecs() {
