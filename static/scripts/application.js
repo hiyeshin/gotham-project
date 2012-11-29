@@ -150,8 +150,8 @@ function init(){
 	rightWall.position.z = 5;
 
 	cubeGroup.add( rightWall );	
-	console.log( "leftwall should be there");
 
+	cubeGroup.position.set( 0, 150, -300);
 
 
 	renderer = new THREE.WebGLRenderer({

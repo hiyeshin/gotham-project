@@ -26,12 +26,14 @@
             <h1 class="pageheader">
                 <a href="/">GOTHAM PROJECT</a>
             </h1>
-
             <hr>
-            <h2>Gotham Project</h2>
-            <h2>About Us</h2>
-            <h2>News/Events<h2>
-            <h2>Contact</h2>
+
+            <ul id="navigation">
+                <li class = "gotham"><a>Gotham Project</a><span class="hover"><span></li>
+                <li class = "about"><a>About Us</a><span class="hover"><span></li>
+                <li class = "news">News/Events</a><span class="hover"><span></li>
+                <li class = "contact">Contact</a><span class="hover"><span></li>
+            </ul>
 
 
             {% block body %}{% endblock %}
@@ -50,8 +52,21 @@
         <script src="{{ url_for('static', filename='scripts/three.js') }}"></script>
         <script src="{{ url_for('static', filename='scripts/skip.js') }}"></script>
         <script src="{{ url_for('static', filename='scripts/application.js') }}"></script>
-        <script src="{{ url_for('static', filename='scripts/ColladaLoader.js') }}"></script>
-        <script src="{{ url_for('static', filename='scripts/Detector.js') }}"></script>
+        <script src="{{ url_for('static', filename='scripts/easing.js') }}"></script>
+       <!--  // <script src="{{ url_for('static', filename='scripts/ColladaLoader.js') }}"></script>
+        // <script src="{{ url_for('static', filename='scripts/Detector.js') }}"></script> -->
+
+        <script>
+        $('#navigation li a').hover( function(){
+            $('.hover', this ).stop().animate({
+                'opacity': 1
+                 }, 700, 'easeOutSine' )
+        }, function(){
+            $('.hover', this ).stop().animate({
+                'opacity': 0
+            }, 500, 'easeOutExpo' )
+        })
+        </script>
 
         
         {% block scripts %}{% endblock %}
