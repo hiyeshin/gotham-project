@@ -48,7 +48,7 @@ var clock = new THREE.Clock();
 
 init();
 animate();
-addControls();
+//addControls();
 
 
 function init(){
@@ -76,6 +76,21 @@ function init(){
 	// controls.autoForward = false;
 	// controls.dragToLook = false;
 
+
+	controls = new THREE.TrackballControls( camera )
+
+	controls.rotateSpeed = 1.0
+	controls.zoomSpeed   = 1.2
+	controls.panSpeed    = 0.8
+
+	controls.noZoom = false
+	controls.noPan  = false
+	controls.staticMoving = true
+	controls.dynamicDampingFactor = 0.3
+	controls.keys = [ 65, 83, 68 ]//  ASCII values for A, S, and D
+
+	controls.addEventListener( 'change', render );
+	console.log("controls controls");
 	
 
 	//initiate webcam texture
@@ -159,6 +174,9 @@ function init(){
 	});
 	renderer.sortObjects = false;
 	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.shadowMapEnabled = true
+	renderer.shadowMapSoft = true
+
 	container.appendChild( renderer.domElement );
 
 
@@ -178,7 +196,7 @@ function init(){
 
 	//onResize();
 
-	animate();
+	//animate();
 
 }
 
@@ -187,9 +205,10 @@ function animate(){
 	if ( video.readyState === video.HAVE_ENOUGH_DATA ){
 		videoTexture.needsUpdate = true;
 	}
-	requestAnimationFrame( animate );
+	
 	render();
 	controls.update();
+	requestAnimationFrame( animate );
 }
 
 
@@ -212,24 +231,24 @@ function onResize(){
 }
 
 
-function addControls(){
+// function addControls(){
 
-	controls = new THREE.TrackballControls( camera )
+// 	controls = new THREE.TrackballControls( camera )
 
-	controls.rotateSpeed = 1.0
-	controls.zoomSpeed   = 1.2
-	controls.panSpeed    = 0.8
+// 	controls.rotateSpeed = 1.0
+// 	controls.zoomSpeed   = 1.2
+// 	controls.panSpeed    = 0.8
 
-	controls.noZoom = false
-	controls.noPan  = false
-	controls.staticMoving = true
-	controls.dynamicDampingFactor = 0.3
-	controls.keys = [ 65, 83, 68 ]//  ASCII values for A, S, and D
+// 	controls.noZoom = false
+// 	controls.noPan  = false
+// 	controls.staticMoving = true
+// 	controls.dynamicDampingFactor = 0.3
+// 	controls.keys = [ 65, 83, 68 ]//  ASCII values for A, S, and D
 
-	controls.addEventListener( 'change', render );
-	console.log("controls controls");
+// 	controls.addEventListener( 'change', render );
+// 	console.log("controls controls");
 
-}
+// }
 
 
 
