@@ -136,7 +136,7 @@ function init(){
 	middlePlane.dynamic = true;
 	
 	var middleWall = new THREE.Mesh( middlePlane, meshMaterial );
-	middleWall.position.z = -200;
+	middleWall.position.z = -280;
 
 	cubeGroup.add( middleWall );
 
@@ -145,10 +145,11 @@ function init(){
 	leftPlane = new THREE.PlaneGeometry( 640, 640, vidWidth, vidHeight);
 	leftPlane.dynamic = true;
 
+
 	var leftWall = new THREE.Mesh( leftPlane, meshMaterial );
 
 	leftWall.rotation.y = 1.25;
-	leftWall.position.x = -360;
+	leftWall.position.x = -400;
 	leftWall.position.z = 5;
 
 	cubeGroup.add( leftWall );	
@@ -162,7 +163,7 @@ function init(){
 
 	//leftWall.rotation.y = Math.PI / 2;
 	rightWall.rotation.y = -1.25;
-	rightWall.position.x = 360;
+	rightWall.position.x = 400;
 	rightWall.position.z = 5;
 
 	cubeGroup.add( rightWall );	
