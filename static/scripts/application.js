@@ -1,4 +1,5 @@
 $( document ).ready( function(){ 
+	console.log("hello hello");
 	setupThree();
 	addLights();
 	addControls();
@@ -6,13 +7,12 @@ $( document ).ready( function(){
 	window.cubeGroup = new THREE.Object3D();
 
 	window.cubeSize = 90;
-	window.cube = new THREE.Mesh(){
+	window.cube = new THREE.Mesh(
 		new THREE.CubeGeometry( cubeSize, cubeSize, cubeSize, 32, 32, 32),
 		new THREE.MeshLambertMaterial({
-			new THREE.ImageUtils.loadTexture( 'media/kubr.jpg' )
-
+			map: THREE.ImageUtils.loadTexture( 'static/media/kubr.jpg' )
 		})
-	}
+	)
 
 	cube.position.set( 0, 0, 0 );
 	cube.receiveShadow = true;
