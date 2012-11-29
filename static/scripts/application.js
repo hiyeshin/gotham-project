@@ -30,7 +30,7 @@ var vidHeight = 320;
 var tiltSpeed = 0.1;
 var tiltAmount = 0.5;
 
-var camera, scene, renderer;
+var camera, scene, renderer, controls;
 var windowHalfX, windowHalfY;
 var video, videoTexture;
 var world3D;
@@ -40,7 +40,7 @@ var pixels;
 var wireMaterial;
 var meshMaterial;
 var container, stats;
-var params, title, info, prompt, controls;
+var params, title, info, prompt;
 
 var clock = new THREE.Clock();
 
@@ -49,6 +49,7 @@ var clock = new THREE.Clock();
 init();
 animate();
 addControls();
+
 
 function init(){
 	//stop the user getting a text cursor
@@ -135,8 +136,7 @@ function init(){
 	leftWall.position.z = 5;
 
 	cubeGroup.add( leftWall );	
-	console.log( "leftwall should be there");
-
+	
 
 	// 3. add left wall
 	rightPlane = new THREE.PlaneGeometry( 640, 640, canvasWidth, canvasHeight);
@@ -189,11 +189,16 @@ function animate(){
 	}
 	requestAnimationFrame( animate );
 	render();
+	controls.update();
 }
 
 
 function render(){
-	cubeGroup.scale = new THREE.Vector3( 0.5, 0.5, 1);
+	cubeGroup.scale = new THREE.Vector3( 0.5, 0.5, 1 );
+
+	renderer.autoClear = false;
+	renderer.clear();
+
 	renderer.render( scene, camera );
 }
 
@@ -222,9 +227,9 @@ function addControls(){
 	controls.keys = [ 65, 83, 68 ]//  ASCII values for A, S, and D
 
 	controls.addEventListener( 'change', render );
+	console.log("controls controls");
+
 }
-
-
 
 
 

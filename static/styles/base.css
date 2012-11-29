@@ -3,18 +3,23 @@ body
 {
 
 	margin: 0px;
-	background: #ffffff;
-	color: #000000;
+	background: #000000;
+	color: #ffffff;
 	font-size:   14px;
 	/*line-height: 20px;*/
 	overflow: hidden;
 	
 }
 
+h1{
+	color: #ffffff;
+	font-family: "Futura", "Helvetica", sans-serif;
+}
+
 h2{
 	top: 0px; 
 	width: 100%;
-	color: #000000;
+	color: #ffffff;
 	margin: 8px;
 	padding: -10px;				
 	text-align:left;
@@ -37,7 +42,7 @@ footer{
 	top: 90%;
 	/*top: height / 2;*/
 	width: 100%;
-	color: #000000;
+	color: #ffffff;
 	padding: 38px;
 				
 	text-align:center;
@@ -46,7 +51,7 @@ footer{
 }
 
 
-a: link{	
+/*a: link{	
 	font-size:   28px;
 	color: #9ae7c7;
 	text-decoration: none;
@@ -63,7 +68,7 @@ a: visited{	font-size:   28px;
 	color: #9ae7c7;
 	text-decoration: none;
 }
-
+*/
 
 #three
 {	
