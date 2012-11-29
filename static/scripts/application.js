@@ -20,13 +20,10 @@
  * Use mouse move to tilt and scroll wheel to zoom. Requires Chrome or Opera.
  *
  */
-
-//if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-
 var canvasWidth = 320 / 2;
 var canvasHeight = 240 / 2;
 var vidWidth = 320;
-var vidHeight = 240;
+var vidHeight = 320;
 var tiltSpeed = 0.1;
 var tiltAmount = 0.5;
 
@@ -56,29 +53,23 @@ function init(){
 	container = document.createElement('div');
 	document.body.appendChild( container );
 
-	camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 5000);
+	camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 1, 10000);
 	camera.target = new THREE.Vector3( 0, 0, 0);
-
+	
+	
 	scene = new THREE.Scene();
-
 	scene.add( camera );
-	camera.position.z = 600;
+	camera.position.z = 1500;
 
 
-	controls = new THREE.FlyControls( camera );
-	controls.movementSpeed = 1000;
-	controls.domElement = container;
-	controls.rollSpeed = Math.PI / 24;
-	controls.autoForward = false;
-	controls.dragToLook = false;
-
-	dirLight = new THREE.DirectionalLight( 0xffffff );
-	dirLight.position.set( -1, 0, 1).normalize();
-	scene.add( dirLight );
+	// controls = new THREE.FlyControls( camera );
+	// controls.movementSpeed = 1000;
+	// controls.domElement = container;
+	// controls.rollSpeed = Math.PI / 24;
+	// controls.autoForward = false;
+	// controls.dragToLook = false;
 
 	
-	ambientLight = new THREE.AmbientLight( 0x000000 );
-	scene.add( ambientLight );
 
 	//initiate webcam texture
 	video = document.createElement( 'video' );
@@ -113,7 +104,7 @@ function init(){
 
 
 	// add planes
-	middlePlane = new THREE.PlaneGeometry( 640, 480, canvasWidth, canvasHeight);
+	middlePlane = new THREE.PlaneGeometry( 640, 640, canvasWidth, canvasHeight);
 	middlePlane.dynamic = true;
 	meshMaterial = new THREE.MeshBasicMaterial({
 		opacity: 1,
@@ -121,7 +112,11 @@ function init(){
 	});
 
 	var middleWall = new THREE.Mesh( middlePlane, meshMaterial );
+	// middleWall.position.x = window.innerWidth / 2;;
+	// middleWall.position.y = window.innerHeight / 2;
+
 	cubeGroup.add( middleWall );
+	middleWall.position.z = 5;
 
 
 	renderer = new THREE.WebGLRenderer({
@@ -132,7 +127,7 @@ function init(){
 	container.appendChild( renderer.domElement );
 
 
-	//initiate vidCanvas: and ised to analyze the video pixels
+	//initiate vidCanvas: and used to analyze the video pixels
 	vidCanvas = document.createElement('canvas');
 	document.body.appendChild( vidCanvas );
 	vidCanvas.style.position = 'absolute';
@@ -146,7 +141,7 @@ function init(){
 		prompt.innerHTML = 'WebGL Context Lost. Please try reloading the page.';
 	}, false );
 
-	onResize();
+	//onResize();
 
 	animate();
 
@@ -163,6 +158,7 @@ function animate(){
 
 
 function render(){
+	cubeGroup.scale = new THREE.Vector3( 0.5, 0.5, 1);
 	renderer.render( scene, camera );
 }
 
