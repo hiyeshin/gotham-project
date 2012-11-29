@@ -6,7 +6,7 @@ import requests
 #from google.appengine.ext.webapp import template
 #from samplelib import samplemodule
 
-from flask import Flask, request, render_template, redirect, abort, jsonify
+from flask import Flask, render_template, redirect, abort, jsonify
 
 
 app = Flask(__name__) 
