@@ -67,14 +67,6 @@ function init(){
 	camera.position.z = 1500;
 
 
-	// controls = new THREE.FlyControls( camera );
-	// controls.movementSpeed = 1000;
-	// controls.domElement = container;
-	// controls.rollSpeed = Math.PI / 24;
-	// controls.autoForward = false;
-	// controls.dragToLook = false;
-
-
 	controls = new THREE.TrackballControls( camera )
 
 	controls.rotateSpeed = 1.0
@@ -115,6 +107,11 @@ function init(){
 		prompt.innerHTML = "Unable to capture Webcam. Please reload the page.";
 	});
 
+
+
+///////////////////////////////////////////////
+// next step should be how to use filtered video as a texture?
+////////////////////////////////////
 	
 	videoTexture = new THREE.Texture( video );
 
@@ -125,18 +122,21 @@ function init(){
 
 	// video texture
 	meshMaterial = new THREE.MeshBasicMaterial({
-		opacity: 1,
+		opacity: 0.5,
 		map: videoTexture,
-		side: THREE.DoubleSide
+		side: THREE.DoubleSide, 
+		//wireframe: true
 	});
 
 
 	//1. add middle wall
 	middlePlane = new THREE.PlaneGeometry( 640, 640, vidWidth, vidHeight);
 	middlePlane.dynamic = true;
+
 	
 	var middleWall = new THREE.Mesh( middlePlane, meshMaterial );
 	middleWall.position.z = -280;
+
 
 	cubeGroup.add( middleWall );
 
@@ -199,6 +199,12 @@ function init(){
 	//onResize();
 
 }
+
+
+/////////////////////////////////////////////
+/////phase3. wireframe z depth
+////////////////////////////////////////
+// if ()
 
 
 function animate(){
