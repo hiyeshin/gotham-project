@@ -5,15 +5,16 @@ body
 	margin: 0px;
 	background: #000000;
 	color: #ffffff;
-	font-size:   14px;
-	/*line-height: 20px;*/
+	font-size:   18px;
+	font-family: "Courier", serif;
+	line-height: 20px;
 	overflow: hidden;
 	
 }
 
 h1{
 	color: #ffffff;
-	font-family: "Futura", "Helvetica", sans-serif;
+	font-family: "Futura", Helvetica, sans-serif;
 }
 
 h2{
@@ -23,7 +24,7 @@ h2{
 	margin: 8px;
 	padding: -10px;				
 	text-align:left;
-	font-family: "Mrs Eaves OT", Georgia, Times, serif;
+	font-family: "Futura", Helvetica, sans-serif;
 	/*font-family: "Courier", serif;*/
 	font-size: 12px;
 	/*font-style: italic;*/
@@ -33,7 +34,7 @@ h2{
 footer{	
 
 	position: absolute;
-	font-family: "Mrs Eaves OT", Georgia, Times, serif;
+	font-family: "Georgia", Times, serif;
 	font-size:   14px;
 	line-height: 15px;
 	font-style: italic;

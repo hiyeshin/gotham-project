@@ -8,11 +8,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ title }}</title>
         <meta name="description" content="ITP DWD Example Site using templates">
-        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles/bootstrap.css') }}"> -->
+       
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
 
         <!-- Get Font from Google http://www.google.com/webfonts -->
-        <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'>
+        <!-- <link href='http://fonts.googleapis.com/css?family=Peralta' rel='stylesheet' type='text/css'> -->
 
         {% block styles %}{% endblock %}
 
@@ -21,19 +21,21 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-        <div class="container">
-
+       <!--  <div class="container">
+ -->
             <h1 class="pageheader">
                 <a href="/">GOTHAM PROJECT</a>
             </h1>
             <hr>
 
+            <h2>
             <ul id="navigation">
                 <li class = "gotham"><a href='/project'>Gotham Project</a><span class="hover"><span></li>
                 <li class = "about"><a href='/about'>About Us</a><span class="hover"><span></li>
                 <li class = "news"><a href='/news'>News/Events</a><span class="hover"><span></li>
                 <li class = "contact"><a href='/contact'>Contact</a><span class="hover"><span></li>
             </ul>
+            </h2>
 
 
             {% block body %}{% endblock %}
@@ -45,16 +47,14 @@
                ©2012 Hiye Shin. All rights resereved.
             </footer>
 
-        </div> <!-- /container -->
+       <!--  </div> /container -->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='scripts/jquery.js')}}"><\/script>')</script>
         <script src="{{ url_for('static', filename='scripts/three.js') }}"></script>
         <script src="{{ url_for('static', filename='scripts/skip.js') }}"></script>
-        <script src="{{ url_for('static', filename='scripts/application.js') }}"></script>
+      
         <script src="{{ url_for('static', filename='scripts/easing.js') }}"></script>
-       <!--  // <script src="{{ url_for('static', filename='scripts/ColladaLoader.js') }}"></script>
-        // <script src="{{ url_for('static', filename='scripts/Detector.js') }}"></script> -->
 
         <script>
         $('#navigation li a').hover( function(){

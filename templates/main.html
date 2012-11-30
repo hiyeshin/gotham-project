@@ -1,8 +1,12 @@
 {% extends "layout/main.html" %}
 
+
+
+
 {% block body %}
 
-		<div id="three"> 
+		<div class="container"> 
+			<!-- // <script src="{{ url_for('static', filename='scripts/application.js') }}"></script> -->
 		</div>
 
 	
@@ -11,4 +15,12 @@
 				<p> Gotham Project</p>
 			</div>
 		</footer> -->
+
 {% endblock%}
+
+
+{% block scripts %}
+ <script src="{{ url_for('static', filename='scripts/application.js') }}"></script>
+ {% endblock %}
+
+
