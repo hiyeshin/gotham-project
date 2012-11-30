@@ -20,6 +20,26 @@ def index():
     return render_template('main.html')
 
 
+@app.route("/project")
+def project():
+	return render_template('project.html')
+
+
+@app.route("/about")
+def about():
+	return render_template('about.html')
+
+
+@app.route("/news")
+def news():
+	return render_template('news.html')
+
+
+@app.route("/contact")
+def contact():
+	return render_template('contact.html')
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
