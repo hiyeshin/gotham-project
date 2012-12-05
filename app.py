@@ -22,6 +22,7 @@ import StringIO
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY')
 app.config['CSRF_ENABLED'] = False
+app.config['TRAP_BAD_REQUEST_ERRORS'] = True
 
 #------------- Database Connection -----------------
 # MongoDB connection to MongoLab's database
@@ -40,7 +41,7 @@ def index():
 
     if request.method == "POST" and photo_upload_form.validate():
 
-    	uploaded_file = request.files['fleupload']
+    	uploaded_file = request.files['fileupload']
     	app.logger.info("file uploaded")
 
 
@@ -55,7 +56,7 @@ def index():
     		filename = now.strftime('%Y%m%d%H%M%s') + "-" + secure_filename(uploaded_file.filename)
 
     		#connect to s3
-    		s3conn = boto.connect_s3(os.environ.get('AWS_ACCESS_KEY_ID'), os.environ.get('AWS_SECRET_ACCESS_KEY'))
+    		s3conn = boto.connect_s3(os.environ.get('AWS_ACCESS_KEY_ID'),os.environ.get('AWS_SECRET_ACCESS_KEY'))
 
     		# open s3 bucket, and create new Key/file
     		# set the mimetype, content and access control
@@ -146,7 +147,7 @@ def page_not_found(error):
 
 def allowed_file(filename):
 	return '.' in filename and \
-			filename.lower().rsplit('.', 1)[1] in ALLOWED_ETENSIONS
+        	filename.lower().rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 if __name__ == "__main__":
