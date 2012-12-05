@@ -45,11 +45,11 @@ var params, title, info, prompt;
 var clock = new THREE.Clock();
 
 
-init();
-animate();
-
+ init();
 
 function init(){
+	
+
 	//stop the user getting a text cursor
 	document.onselectstart = function(){
 		return false;
@@ -109,9 +109,9 @@ function init(){
 
 
 
-///////////////////////////////////////////////
-// next step should be how to use filtered video as a texture?
-////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+// next step should be how to use filtered video as a texture? //
+/////////////////////////////////////////////////////////////////
 	
 	videoTexture = new THREE.Texture( video );
 
@@ -197,6 +197,7 @@ function init(){
 	}, false );
 
 	//onResize();
+	animate();
 
 }
 
@@ -212,29 +213,32 @@ function animate(){
 		videoTexture.needsUpdate = true;
 	}
 	
-	render();
+	
 	controls.update();
 	requestAnimationFrame( animate );
+	render();
 }
+
 
 
 function render(){
 	cubeGroup.scale = new THREE.Vector3( 0.5, 0.5, 1 );
 
-	renderer.autoClear = false;
-	renderer.clear();
+	// renderer.autoClear = false;
+	// renderer.clear();
 
 	renderer.render( scene, camera );
 }
 
 
-function onResize(){
-	renderer.setSize( window.innerWidth, window.innerHeight );
-	camera.aspect = window.innerWidth / window.innerHeight;
-	camera.updateProjectionMatrix();
-	windowHalfX = window.innerWidth / 2;
-	windowHalfY = window.innerHeight / 2;
-}
+
+// function onResize(){
+// 	renderer.setSize( window.innerWidth, window.innerHeight );
+// 	camera.aspect = window.innerWidth / window.innerHeight;
+// 	camera.updateProjectionMatrix();
+// 	windowHalfX = window.innerWidth / 2;
+// 	windowHalfY = window.innerHeight / 2;
+// }
 
 
 function detectSpecs() {
@@ -268,7 +272,7 @@ function detectSpecs() {
 		prompt.innerHTML = 'No WebGL support detected. Please try restarting the browser.';
 	} else {
 		prompt.innerHTML = 'Please allow camera access.';
-		init();
+		//init();
 	}
 
 }

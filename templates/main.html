@@ -1,6 +1,13 @@
 {% extends "layout/main.html" %}
 
+{% block styles %}
+<style>
+img {
+	windth: 320px;
+}
+</style>
 
+{% endblock %}
 
 
 {% block body %}
@@ -9,19 +16,28 @@
 			<!-- // <script src="{{ url_for('static', filename='scripts/application.js') }}"></script> -->
 		</div>
 
-		<form>
-			<button type="submit" class="phase1">not-working Phase 1</button>
-			<button type="submit" class="phase2">not-working Phase 2</button>
-			<button type="submit" class="phase3">not-working Phase 3</button>
-			<button type="submit" class="phase4">not-working Phase 4</button>
-		</form>
-
 	
-		<!-- <footer>
-			<div id = "instruction" >
-				<p> Gotham Project</p>
-			</div>
-		</footer> -->
+
+		<div id="uploaded">
+			<form method="POST" enctype="multipart/form-data">
+				{{ form.fileupload.label }}
+				{{ form.fileupload }}
+				<input button type="submit" class="picture" value="upload">
+			</form>
+		</div>
+
+		<div id="album">
+			<h2>Album</h2>
+			<hr>
+			{% for img in images %}
+			<img src="https://s3.amazonaws.com/gotham_project/{{img.filename}}" class="img-polaroid">
+			<p>{{ img.timestamp.strftime("%m/%d/%y")}}</p>
+			<a href="/delete/{{img.id}}">delete</a>
+			<hr> 
+			{% endfor %}
+		</div>
+
+
 
 {% endblock%}
 
