@@ -29,11 +29,11 @@ app.config['CSRF_ENABLED'] = False
 mongoengine.connect('mydata', host=os.environ.get('MONGOLAB_URI'))
 app.logger.debug("Connecting to MongoLabs")
 
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'pdf'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
     
     photo_upload_form = models.photo_upload_form(request.form)

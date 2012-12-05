@@ -9,7 +9,7 @@ class Image(mongoengine.Document):
 
 	filename = mongoengine.StringField()
 
-	timestamp = mongoengine.DateTimeField(default = datetime.now())
+	timestamp = mongoengine.DateTimeField(default=datetime.now())
 
 
 photo_form = model_form(Image)

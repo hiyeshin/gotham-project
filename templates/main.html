@@ -16,9 +16,21 @@ img {
 			<!-- // <script src="{{ url_for('static', filename='scripts/application.js') }}"></script> -->
 		</div>
 
-	
-
 		<div id="uploaded">
+			{% if form.errors %}
+			<ul class="errors">
+				{% for field_name, field_errors in form.errors|dictsort if field_errors %}
+					{% for error in field_errors %}
+						<li class="alert alert-error">
+							{{ form[field_name].label.text }} - {{ error }}
+						</li>
+					{% endfor %}
+				{% endfor %}
+			</ul>
+			{% endif %}
+
+
+	
 			<form method="POST" enctype="multipart/form-data">
 				{{ form.fileupload.label }}
 				{{ form.fileupload }}
@@ -44,6 +56,6 @@ img {
 
 {% block scripts %}
  <script src="{{ url_for('static', filename='scripts/application.js') }}"></script>
- {% endblock %}
+{% endblock %}
 
 
