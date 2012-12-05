@@ -42,7 +42,7 @@ img {
 			<h2>Album</h2>
 			<hr>
 			{% for img in images %}
-			<img src="https://s3.amazonaws.com/gotham_project/{{img.filename}}" class="img-polaroid"></a>
+			<img src="https://s3.amazonaws.com/gotham-project/{{img.filename}}" class="img-polaroid"></a>
 			<p>{{ img.timestamp.strftime("%m/%d/%y")}}</p>
 			<a href="/delete/{{img.id}}">delete</a>
 			<hr> 
