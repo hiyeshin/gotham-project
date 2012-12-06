@@ -1,13 +1,9 @@
 // // what to do:
-// // change cube to the three planes so I can project only three different versions
-// // add 4 function buttons that related to our projects
-// // phase one : mask or organic filters
-// // phase two:
-// // phase three: mesh
-// // phase four: mirroring and distorting
-// // add about and other pages
-// // optionatal : add music changing function to the phase
-// // optional: add costume change function to the phase
+// making submitted picture as a texture of the cube
+
+// question to ask Stewart:
+// How can I make the submitted picture as a texture?
+
 // thanks Mr.doob!
 /**
  *
@@ -33,9 +29,11 @@ var tiltAmount = 0.5;
 var camera, scene, renderer, controls;
 var windowHalfX, windowHalfY;
 var video, videoTexture;
+var picture, pictureTexture, pictureMaterial;
 var world3D;
 var middlePlane, leftPlane, rightPlane;
 var vidCanvas;
+var picCanvas;
 var pixels;
 var wireMaterial;
 var meshMaterial;
@@ -45,7 +43,7 @@ var params, title, info, prompt;
 var clock = new THREE.Clock();
 
 
- init();
+init();
 
 function init(){
 	
@@ -80,7 +78,7 @@ function init(){
 	controls.keys = [ 65, 83, 68 ]//  ASCII values for A, S, and D
 
 	controls.addEventListener( 'change', render );
-	console.log("controls controls");
+
 	
 
 	//initiate webcam texture
@@ -91,7 +89,7 @@ function init(){
 	video.loop = true;
 
 	//make it cross browser
-	window.URL = window.URL || wibdow.webkitURL;
+	window.URL = window.URL || window.webkitURL;
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
 	//get webcam
@@ -108,13 +106,17 @@ function init(){
 	});
 
 
+	// picture = "https://s3.amazonaws.com/gotham-project/{{img.filename}}"; // it's not working due to cross-browser issue
+	// picture = document.getElementsByClassName( 'img-polaroid' );
+	picture = '{{ images[0] }}';
+	// picture.width = vidWidth;
+	// picture.height = vidHeight;
 
 /////////////////////////////////////////////////////////////////
 // next step should be how to use filtered video as a texture? //
 /////////////////////////////////////////////////////////////////
 	
 	videoTexture = new THREE.Texture( video );
-
 
 	cubeGroup= new THREE.Object3D();
 	scene.add( cubeGroup );
@@ -124,9 +126,16 @@ function init(){
 	meshMaterial = new THREE.MeshBasicMaterial({
 		opacity: 0.5,
 		map: videoTexture,
-		side: THREE.DoubleSide, 
+		side: THREE.DoubleSide
 		//wireframe: true
 	});
+
+	pictureMaterial = new THREE.MeshBasicMaterial({
+		opacity: 0.5,
+		map: THREE.ImageUtils.loadTexture( picture ),
+		side: THREE.DoubleSide
+		
+	})
 
 
 	//1. add middle wall
@@ -134,7 +143,7 @@ function init(){
 	middlePlane.dynamic = true;
 
 	
-	var middleWall = new THREE.Mesh( middlePlane, meshMaterial );
+	var middleWall = new THREE.Mesh( middlePlane, pictureMaterial );
 	middleWall.position.z = -280;
 
 

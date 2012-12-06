@@ -116,9 +116,9 @@ def delete_image(imageid):
 		return "Unable to find requested image in database."
 
 
-
-
-
+@app.route("/test")
+def test():
+    return render_template('test.html')
 
 
 @app.route("/project")
