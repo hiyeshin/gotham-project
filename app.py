@@ -52,9 +52,10 @@ def index():
     	# 5. maybe connect to application.js to make it as a texture?
 
     	if uploaded_file and allowed_file(uploaded_file.filename):
+
     		now = datetime.datetime.now()
     		filename = now.strftime('%Y%m%d%H%M%s') + "-" + secure_filename(uploaded_file.filename)
-
+            # filename = now.strftime('%Y%m%d%H%M%s') + "-" + secure_filename(uploaded_file.filename)
     		#connect to s3
     		s3conn = boto.connect_s3(os.environ.get('AWS_ACCESS_KEY_ID'),os.environ.get('AWS_SECRET_ACCESS_KEY'))
 
@@ -74,6 +75,7 @@ def index():
 
     			submitted_image = models.Image()
     			submitted_image.filename = filename # same filename of s3 bucket file
+                
     			submitted_image.save()
 
     		return redirect('/')
@@ -85,11 +87,14 @@ def index():
     else:
     	#get existing images. maybe I'll change my mind later
     	images = models.Image.objects.order_by('-timestamp')
+        latest_image = images[0]
 
     	templateData = {
     		'images' : images,
     		'form' : photo_upload_form
     	}
+
+        
 
     	return render_template("main.html", **templateData)
 

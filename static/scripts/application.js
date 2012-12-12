@@ -98,17 +98,21 @@ function init(){
 	}, function( stream ){
 		//on webcam enabled
 		video.src = window.URL.createObjectURL( stream );
-		prompt.style.display = 'none';
-		title.style.display = 'inline';
+		 prompt.style.display = 'none';
+		//title.style.display = 'inline';
 		container.style.display = 'inline';
 	}, function( error ){
 		prompt.innerHTML = "Unable to capture Webcam. Please reload the page.";
 	});
 
 
-	// picture = "https://s3.amazonaws.com/gotham-project/{{img.filename}}"; // it's not working due to cross-browser issue
-	// picture = document.getElementsByClassName( 'img-polaroid' );
-	picture = '{{ images[0] }}';
+	latest = document.getElementById( 'latest' );
+	picture = "https://s3.amazonaws.com/gotham-project/2012120515101354738200-stern.png"; 
+	console.log( picture );
+	// picture = "https://s3.amazonaws.com/gotham-project/{{ img.images[0] }}";
+	// picture = document.getElementsByClassName( 'img-polaroid' ).images[0];
+	// console.log( picture );
+	//picture = '{{ images[0] }}';
 	// picture.width = vidWidth;
 	// picture.height = vidHeight;
 
@@ -122,7 +126,7 @@ function init(){
 	scene.add( cubeGroup );
 
 
-	// video texture
+	//video texture
 	meshMaterial = new THREE.MeshBasicMaterial({
 		opacity: 0.5,
 		map: videoTexture,
@@ -154,7 +158,6 @@ function init(){
 	leftPlane = new THREE.PlaneGeometry( 640, 640, vidWidth, vidHeight);
 	leftPlane.dynamic = true;
 
-
 	var leftWall = new THREE.Mesh( leftPlane, meshMaterial );
 
 	leftWall.rotation.y = 1.25;
@@ -164,16 +167,16 @@ function init(){
 	cubeGroup.add( leftWall );	
 	
 
-	// 3. add left wall
+	// 3. add right wall
 	rightPlane = new THREE.PlaneGeometry( 640, 640, vidWidth, vidHeight);
 	rightPlane.dynamic = true;
 
 	var rightWall = new THREE.Mesh( rightPlane, meshMaterial );
 
 	//leftWall.rotation.y = Math.PI / 2;
-	rightWall.rotation.y = -1.25;
 	rightWall.position.x = 400;
 	rightWall.position.z = 5;
+	rightWall.rotation.y = -1.25;
 
 	cubeGroup.add( rightWall );	
 
@@ -257,8 +260,8 @@ function detectSpecs() {
 	prompt = document.querySelector('#prompt');
 	info = document.querySelector('#info');
 	title = document.querySelector('#title');
-	info.style.display = 'none';
-	title.style.display = 'none';
+	//info.style.display = 'none';
+	//title.style.display = 'none';
 	container.style.display = 'none';
 
 	var hasWebgl = (function() {

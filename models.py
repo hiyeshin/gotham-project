@@ -6,9 +6,7 @@ from flask.ext.mongoengine import *
 from datetime import datetime
 
 class Image(mongoengine.Document):
-
 	filename = mongoengine.StringField()
-
 	timestamp = mongoengine.DateTimeField(default=datetime.now())
 
 

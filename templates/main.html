@@ -5,6 +5,8 @@
 img {
 	width: 50px;
 }
+
+latest_image{}
 </style>
 
 {% endblock %}
@@ -38,16 +40,17 @@ img {
 		</div>
 
 		<div id="album">
-			<h2>Album</h2>
-			<hr>
+			
+
 			{% for img in images %}
 			<!-- <div id="picture"> -->
 				<img src="https://s3.amazonaws.com/gotham-project/{{img.filename}}" class="img-polaroid"></a>
 			<!-- </div> -->
 			<p>{{ img.timestamp.strftime("%m/%d/%y")}}</p>
 			<a href="/delete/{{img.id}}">delete</a>
-			<hr> 
 			{% endfor %}
+
+
 		</div>
 	</div>
 
