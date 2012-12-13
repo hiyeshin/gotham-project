@@ -147,7 +147,7 @@ function init(){
 	middlePlane.dynamic = true;
 
 	
-	var middleWall = new THREE.Mesh( middlePlane, pictureMaterial );
+	var middleWall = new THREE.Mesh( middlePlane, meshMaterial );
 	middleWall.position.z = -280;
 
 

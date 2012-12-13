@@ -15,44 +15,10 @@ latest_image{}
 {% block body %}
 
 		<div class="container"> 
-			<!-- // <script src="{{ url_for('static', filename='scripts/application.js') }}"></script> -->
-		<!-- </div> -->
-
-		<div id="uploaded">
-			{% if form.errors %}
-			<ul class="errors">
-				{% for field_name, field_errors in form.errors|dictsort if field_errors %}
-					{% for error in field_errors %}
-						<li class="alert alert-error">
-							{{ form[field_name].label.text }} - {{ error }}
-						</li>
-					{% endfor %}
-				{% endfor %}
-			</ul>
-			{% endif %}
-
-	
-			<form method="POST" enctype="multipart/form-data">
-				{{ form.fileupload.label }}
-				{{ form.fileupload }}
-				<input class="button" type="submit" value="upload">
-			</form>
+			 <script src="{{ url_for('static', filename='scripts/application.js') }}"></script>
 		</div>
 
-		<div id="album">
-			
-
-			{% for img in images %}
-			<!-- <div id="picture"> -->
-				<img src="https://s3.amazonaws.com/gotham-project/{{img.filename}}" class="img-polaroid"></a>
-			<!-- </div> -->
-			<p>{{ img.timestamp.strftime("%m/%d/%y")}}</p>
-			<a href="/delete/{{img.id}}">delete</a>
-			{% endfor %}
-
-
-		</div>
-	</div>
+		
 
 
 
