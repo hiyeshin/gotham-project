@@ -1,32 +1,72 @@
-{% extends "layout/main.html" %}
+<!DOCTYPE html>
+ <!-- Special Thanks to JOHN POLACEK, who wrote an awesome tutorial with video and sliders -->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]> <!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ title }}</title>
+        <meta name="description" content="Gotham Project Website" />
+        <meta name = "author" content = "Hiye Shin" />
+        <meta name = "keywords" content = "fullscreen, video, interactive, performance, gotham, project" />
+        <meta name = "viewport" content = "width = device-width">
+       
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+        <script src="{{ url_for('static', filename='scripts/modernizr-2.5.3.min.js') }}"></script>
+   
+        {% block styles %}{% endblock %}
+         <!--[if lt IE 7]>
+           <style>
+           /* Rotation of the arrow element for IE < 9 */
+        .next-icon { /* IE Matrix Calculator - http: //www.boogdesign.com/examples/transforms/matrix-calculator.html */;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=-0.70710678, M21=0.70710678, M22=0.70710678,sizingMethod='auto expand')";
+            filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=-0.70710678, M21=0.70710678, M22=0.70710678,sizingMethod='auto expand');
+        }</style>
+        <![endif]-->
+    </head>
 
-{% block styles %}
-<style>
-img {
-	width: 50px;
-}
+    <body>
+        <header>
+            <h1>Gotham Project</h1>
+        </header>
 
-latest_image{}
-</style>
+        <div class = "container">
+            <div class = "screen" id = "phase-1" data-video = "{{ url_for('static', filename = 'media/gotham.vid')}}" >
+                <h1 class = "video-title"> Phase 1</h1>
+            </div>
+        </div>
 
-{% endblock %}
+        <nav id = "next-btn">
+            <a href = "#" class = "next-icon"></a>
+        </nav>
 
-
-{% block body %}
-
-		<div class="container"> 
-			 <script src="{{ url_for('static', filename='scripts/application.js') }}"></script>
-		</div>
-
-		
+            {% block body %}{% endblock %}
 
 
-
-{% endblock%}
-
-
-{% block scripts %}
- <script src="{{ url_for('static', filename='scripts/application.js') }}"></script>
-{% endblock %}
+        
+            <footer>
+               ©2012 Gotham Project. Made with love by <a href = "http://www.hiyeshin.com">Hiye Shin</a>
+            </footer>
 
 
+        <!-- BigVideo Dependencies -->      
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{ url_for('static', filename='scripts/jquery-1.8.1.min.js')}}"><\/script>')</script>
+        <script src="{{ url_for('static', filename='scripts/jquery-ui-1.8.22.custom.min.js') }}"></script>    
+        <script src="{{ url_for('static', filename='scripts/jquery.imagesloaded.min.js') }}"></script>
+        <script src="http://vjs.zencdn.net/c/video.js"></script>
+
+        <!-- BigVideo -->
+        <script src="{{ url_for('static', filename='scripts/bigvideo.js') }}"></script>
+        
+        <script src="{{ url_for('static', filename='scripts/jquery.transit.min.js') }}"></script>
+        
+        <script src="{{ url_for('static', filename='scripts/gotham.js') }}"></script>
+
+       
+        {% block scripts %}{% endblock %}
+
+    </body>
+</html>
