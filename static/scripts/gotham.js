@@ -27,6 +27,7 @@ if(!isTouch){
 
 		$bigImage
 			.css('position', 'relative')
+			// .imagesLoaded(adjustImagePositioning);
 			.imagesLoaded(adjustImagePositioning);
 		$window.on('resize', adjustImagePositioning);
 }
