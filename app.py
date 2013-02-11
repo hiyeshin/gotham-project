@@ -40,19 +40,14 @@ def index():
 #     return render_template('test.html')
 
 
-@app.route("/project")
+@app.route("/info")
 def project():
-	return render_template('project.html')
+	return render_template('info.html')
 
 
 @app.route("/about")
 def about():
 	return render_template('about.html')
-
-
-# @app.route("/news")
-# def news():
-# 	return render_template('news.html')
 
 
 @app.route("/contact")
