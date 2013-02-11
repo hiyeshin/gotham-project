@@ -16,7 +16,6 @@ ul {list-style:none;}
 .clear{clear:both;}
 .full{width:100%;}
 .hidden{display:none;}
-/*-----------------------------------------------*/
 
 
 html{
@@ -26,43 +25,32 @@ html{
 
 body{
 	height: 100%;
+	min-width: 1320px;
+	min-height: 100%;
 	background-color: #111111;
 	margin:0;
 	padding: 175px 0 0;
-	font-size:11px;
-	line-height:12px;
-	font-family:Arial,Helvetica,Verdana,sans-serif;
+	
+}
+
+
+ul li {
+	list-style: none outside none;
+}
+
+
+a {
 	color: #ffffff;
-	overflow-x:hidden;	
+	outline: 0 none;
+	text-decoration: none;
 }
 
-
-
-#container {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	z-index: 0;
+a:hover {
+	color: #bbbbbb;
 }
-
-
-#header{
-	position: absolute;
-	z-index: 1000;
-	top: 20px;
-	left: 41%;
-	padding: 30px;
-	/*width: 220px;
-	height: 100px;*/
-	overflow: hidden;
-
-}
-
-
 
 h1{
 	color: #ffffff;
-	
 }
 
 h2{
@@ -77,27 +65,67 @@ h2{
 	font-weight: bold;
 }
 
-p {
+p {	
+	font-size:11px;
+	line-height:12px;
+	font-family:Arial,Helvetica,Verdana,sans-serif;
+	color: #ffffff;
+	overflow-x:hidden;	
 	line-height: 1.4;
 	text-shadow: 1px 1px 1px #000;
 }
 
-#nav {
-	position: absolute;
-	font-family: "proxima-nova-alt-ext-cond", Arial, sans-serif;
-	font-size: 20px;
-	font-weight:100;
-	font-style: normal;
-	padding: 20px;
-	background: #000000;
-	border-radius: 40px;
-	opacity: 0.4px;
-	cursor: pointer;
-	z-index: 1000;
+
+.container {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        min-width: 1320px;
+        max-width: 1620px;
+        overflow: hidden;
+        position: absolute;
+        min-height: 100%;
+        padding: 30px 30px 30px 30px;
+        top: 100px;
+        opacity: 0.4px;
 }
 
 
+ul.nav li div.container {
+	left: 147px;
+	top: 105px;
+	
+}
 
+.container li {
+	background: none;
+	padding: 0 0;
+	line-height: 18px;
+	clear: both;
+}
+
+.container ul li a: hover {
+	font-weight: 800;
+}
+
+#header{
+	position: absolute;
+	z-index: 1000;
+	top: 20px;
+	left: 41%;
+	padding: 30px;
+	/*width: 220px;
+	height: 100px;*/
+	overflow: hidden;
+
+}
+
+
+/*
+
+
+
+*/
 footer{	
 
 	position: absolute;
@@ -119,11 +147,6 @@ footer{
 
 }
 
-
-dl,dt,dd,ul,ol,li{
-	margin:0;
-	padding:0;
-	list-style:none}
 
 
 /*#navigation a { position: relative; }*/
@@ -170,9 +193,6 @@ dl,dt,dd,ul,ol,li{
 	font-size: 20px;
 }
 
-/* nav */
-
-
 
 
 .next-icon {
@@ -185,3 +205,14 @@ dl,dt,dd,ul,ol,li{
 	left: -5px;
 	color: #ffffff;
 }
+
+
+/*.wrapper {
+        width: 80%;
+        margin: 0 auto;
+        min-width: 1320px;
+        max-width: 1620px;
+        overflow: hidden;
+        position: relative;
+        min-height: 100%;
+}*/
