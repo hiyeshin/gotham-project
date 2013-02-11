@@ -82,15 +82,31 @@ p {
 	text-shadow: 1px 1px 1px #000;
 }
 
+#nav {
+	position: absolute;
+	font-family: "proxima-nova-alt-ext-cond", Arial, sans-serif;
+	font-size: 20px;
+	font-weight:100;
+	font-style: normal;
+	padding: 20px;
+	background: #000000;
+	border-radius: 40px;
+	opacity: 0.4px;
+	cursor: pointer;
+	z-index: 1000;
+}
+
 
 
 footer{	
 
 	position: absolute;
-	font-size:   14px;
+	font-family: "proxima-nova-alt-ext-cond", Arial, sans-serif;
+	font-size: 14px;
+	font-weight:100;
+	font-style: normal;
 	line-height: 15px;
-	font-style: italic;
-	font-weight: bold;
+	
 	
 	top: 90%;
 	/*top: height / 2;*/
@@ -156,17 +172,7 @@ dl,dt,dd,ul,ol,li{
 
 /* nav */
 
-nav {
-	position: absolute;
-	right: 5%;
-	top:45%;
-	padding: 20px;
-	background: #000000;
-	border-radius: 40px;
-	opacity: 0.4px;
-	cursor: pointer;
-	z-index: 1000;
-}
+
 
 
 .next-icon {
