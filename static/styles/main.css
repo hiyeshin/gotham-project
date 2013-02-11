@@ -167,7 +167,7 @@ footer{
 
 .wrapper {
 	position: absolute;
-	width: 500%;
+	width: 800%;
 	height: 100%;
 }
 
@@ -193,7 +193,7 @@ nav {
 	right: 5%;
 	top: 50%;
 	padding: 20px;
-	background: #000000;
+	background: #555555;
 	border-radius: 40px;
 	opacity: .4;
 	cursor: pointer;
@@ -206,7 +206,7 @@ nav:hover {
 }
 
 
-/*.next-icon {
+.next-icon {
 	display: block;
 	border-top: solid 2px #ffffff;
 	border-right: solid 2px #ffffff;
@@ -217,6 +217,6 @@ nav:hover {
 
 
 }
-*/
+
 
 
