@@ -121,11 +121,6 @@ ul.nav li div.container {
 }
 
 
-/*
-
-
-
-*/
 footer{	
 
 	position: absolute;
@@ -147,72 +142,3 @@ footer{
 
 }
 
-
-
-/*#navigation a { position: relative; }*/
-
-
-/*#navigation a .hover{
-	display: block;
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
-}
-*/
-
-/*video pages*/
-.screen {
-	position: relative;
-	height: 100%;
-	width: 20%; /* this should be numVideos / 100% */
-	float: left;
-	overflow: hidden;
-}
-
-
-.big-image {
-	min-width: 100%;
-	min-height: 100%;
-	height: auto;
-	width: auto;
-}
-
-
-.video-title {
-	position: absolute;
-	top: 5%;
-	right: 5%;
-	opacity: 0.5;
-	margin: 40px 0px 0px 0px;
-	padding: 0px;
-	line-height: 0.65;
-	font-size: 20px;
-}
-
-
-
-.next-icon {
-	display: block;
-	border-top: solid 2px #ffffff;
-	border-right: solid 2px #ffffff;
-	width: 20px;
-	height: 20px;
-	position: relative;
-	left: -5px;
-	color: #ffffff;
-}
-
-
-/*.wrapper {
-        width: 80%;
-        margin: 0 auto;
-        min-width: 1320px;
-        max-width: 1620px;
-        overflow: hidden;
-        position: relative;
-        min-height: 100%;
-}*/
