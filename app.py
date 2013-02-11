@@ -35,9 +35,9 @@ def index():
     	return render_template("main.html")
 
 
-@app.route("/test")
-def test():
-    return render_template('test.html')
+# @app.route("/test")
+# def test():
+#     return render_template('test.html')
 
 
 @app.route("/project")
@@ -50,9 +50,9 @@ def about():
 	return render_template('about.html')
 
 
-@app.route("/news")
-def news():
-	return render_template('news.html')
+# @app.route("/news")
+# def news():
+# 	return render_template('news.html')
 
 
 @app.route("/contact")
