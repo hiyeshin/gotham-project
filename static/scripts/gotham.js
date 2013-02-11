@@ -90,7 +90,7 @@ function adjustImagePositioning(){
 
 			var windowWidth = $window.width(),
 				windowHeight = $window.height(),
-				r_w = windowHeight / windowWIdth,
+				r_w = windowHeight / windowWidth,
 				i_w = img.width,
 				i_h = img.height,
 				r_i = i_h / i_w,
