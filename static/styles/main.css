@@ -95,7 +95,7 @@ p {
 }
 
 
-ul.nav li div.container {
+ul.menu-nav li div.container {
 	left: 147px;
 	top: 105px;
 	
@@ -126,6 +126,7 @@ ul.nav li div.container {
         left: 200px;
         opacity: 0.4px;
 }
+
 
 
 
@@ -160,6 +161,62 @@ footer{
 				
 	text-align:center;
 	z-index:1000;
+}
+
+/*big video*/
+
+.wrapper {
+	position: absolute;
+	width: 500%;
+	height: 100%;
+}
+
+
+.screen {
+	position: relative;
+	height: 100%;
+	width: 20%;
+	float: left;
+	overflow: hidden;
+}
+
+.big-image {
+	min-width: 100%;
+	min-height: 100%;
+	height: auto;
+	width: auto;
+}
+
+
+nav {
+	position: absolute;
+	right: 5%;
+	top: 50%;
+	padding: 20px;
+	background: #000000;
+	border-radius: 40px;
+	opacity: .4;
+	cursor: pointer;
+	z-index: 1000;
+}
+
+
+nav:hover {
+	opacity: .6;
+}
+
+
+/*.next-icon {
+	display: block;
+	border-top: solid 2px #ffffff;
+	border-right: solid 2px #ffffff;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	left: -5px;
+
 
 }
+*/
+
 
