@@ -19,13 +19,24 @@
         <script src="{{ url_for('static', filename='scripts/modernizr-2.5.3.min.js') }}"></script>
         <!-- this is Grotesque Font for localhost -->
         <script type="text/javascript" src="//use.typekit.net/fzd8tch.js"></script>
-        <script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
         <!-- this is for gothamproject.info -->
         <script type="text/javascript" src="//use.typekit.net/gpy0rxs.js"></script>
-        <script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
         <!-- this is for herokuapp -->
         <script type="text/javascript" src="//use.typekit.net/lqn3lxo.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
+
+        <script type="text/javascript"> //this is for google analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-30334221-2']);
+            _gaq.push(['_setDomainName', 'gothamproject.info']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
    
         {% block styles %}{% endblock %}
          <!--[if lt IE 7]>
