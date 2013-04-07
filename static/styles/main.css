@@ -205,8 +205,36 @@ nav:hover {
 	opacity: .6;
 }
 
+.prev-icon {
+/*	display: block;
+	border-top: solid 2px #ffffff;
+	border-right: solid 2px #ffffff;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	left: -5px;*/
+	right: 5%;
+	transform:rotate(315deg);
+	-ms-transform:rotate(315deg); /* IE 9 
+	-moz-transform:rotate(315deg); /* Firefox */
+	-webkit-transform:rotate(315deg); /* Safari and Chrome */
+	-o-transform:rotate(315deg); /* Opera */
+
+
+}
+
 
 .next-icon {
+	/*position: absolute;
+	right: 5%;
+	top: 50%;
+	padding: 20px;
+	background: #555555;
+	border-radius: 40px;
+	opacity: .4;
+	cursor: pointer;
+	z-index: 1000;*/
+
 	display: block;
 	border-top: solid 2px #ffffff;
 	border-right: solid 2px #ffffff;
@@ -214,6 +242,12 @@ nav:hover {
 	height: 20px;
 	position: relative;
 	left: -5px;
+
+	transform:rotate(45deg);
+	-ms-transform:rotate(45deg); /* IE 9 */
+	-moz-transform:rotate(45deg); /* Firefox */
+	-webkit-transform:rotate(45deg); /* Safari and Chrome */
+	-o-transform:rotate(45deg); /* Opera */
 
 
 }
