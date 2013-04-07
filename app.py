@@ -23,7 +23,7 @@ app.config['TRAP_BAD_REQUEST_ERRORS'] = True
 #------------- Database Connection -----------------
 # MongoDB connection to MongoLab's database
 
-mongoengine.connect('mydata', host=os.environ.get('MONGOLAB_URI'))
+# mongoengine.connect('mydata', host=os.environ.get('MONGOLAB_URI'))
 app.logger.debug("Connecting to MongoLabs")
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -35,14 +35,14 @@ def index():
     	return render_template("main.html")
 
 
-# @app.route("/test")
-# def test():
-#     return render_template('test.html')
+@app.route("/performance")
+def performance():
+	return render_template('performance.html')
 
 
-@app.route("/info")
-def project():
-	return render_template('info.html')
+@app.route("/story")
+def story():
+    return render_template('story.html')
 
 
 @app.route("/about")
@@ -59,9 +59,9 @@ def contact():
 def page_not_found(error):
     return render_template('404.html'), 404
 
-def allowed_file(filename):
-	return '.' in filename and \
-        	filename.lower().rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+# def allowed_file(filename):
+# 	return '.' in filename and \
+#         	filename.lower().rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 if __name__ == "__main__":
